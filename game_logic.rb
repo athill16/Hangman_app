@@ -37,6 +37,14 @@ def check_if_guess_is_correct(word, guess)
 	end
 end
 
+def generate_string_with_blanks(word)
+	word_length = word.length
+	word = ""
+	word_length.times do 
+		word = word + "_"
+	end
+	word 
+end
 
 
 

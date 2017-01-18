@@ -22,4 +22,9 @@ class TestHangmanGame < Minitest::Test
 		assert_equal(false, answer)
 	end
 
+	def test_string_with_blanks
+		word = generate_string_with_blanks("Aaron")
+		assert_equal("_____", word)
+	end
+	
 end
