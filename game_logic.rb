@@ -19,7 +19,28 @@ def generate_random_word()
 	random_word
 end
 
-def generate_number_of_blank_spaces(random_word)
-	number_of_blanks = random_word.length
+def generate_number_of_blank_spaces(word)
+	# takes in a string, outputs an integer
+	number_of_blanks = word.length
 	number_of_blanks
 end
+
+def check_if_guess_is_correct(word, guess)
+	# takes in a string (word) and another string which is a single letter (guess)
+	# outputs a boolean
+	word = word.downcase
+	guess = guess.downcase
+	if word.include?(guess)
+		true
+	else
+		false
+	end
+end
+
+
+
+
+
+
+
+
