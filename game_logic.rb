@@ -14,8 +14,12 @@
 # gem 'random-word-generator', '~> 0.0.1'
 require 'random_word_generator'
 
-def generate_random_word(x)
-	# random_word = RandomWordGenerator.word
-	random_word = RandomWordGenerator.of_length(x)
+def generate_random_word()
+	random_word = RandomWordGenerator.word
 	random_word
+end
+
+def generate_number_of_blank_spaces(random_word)
+	number_of_blanks = random_word.length
+	number_of_blanks
 end
