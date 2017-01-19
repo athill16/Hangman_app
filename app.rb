@@ -49,7 +49,8 @@ post '/makeguess' do
 	if check_if_guess_has_been_used(session[:current_guess], session[:list_of_guesses]) == true
 		erb :redo_guess, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
 	else 
-		session[:list_of_guesses] << session[:current_guess]
+		session[:list_of_guesses] << session[:current_guess].downcase
+		session[:list_of_guesses] = session[:list_of_guesses].sort_by(&:downcase)
 		correct_guess = check_if_guess_is_correct(session[:word], session[:current_guess])
 		if correct_guess == true
 			session[:string_with_blanks] = add_letter_to_correct_blank_space(session[:string_with_blanks], session[:current_guess], session[:word])
@@ -79,6 +80,7 @@ post '/makeguessai' do
 	session[:ai_move] = ai_guess(session[:ai_list])
 	session[:ai_list].delete(session[:ai_move])
 	session[:list_of_guesses] << session[:ai_move]
+	session[:list_of_guesses] = session[:list_of_guesses].sort_by(&:downcase)
 	correct_guess = check_if_guess_is_correct(session[:word], session[:ai_move])
 	if correct_guess == true
 		session[:string_with_blanks] = add_letter_to_correct_blank_space(session[:string_with_blanks], session[:ai_move], session[:word])
