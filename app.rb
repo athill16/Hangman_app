@@ -31,15 +31,21 @@ post '/makeguess' do
 		correct_guess = check_if_guess_is_correct(session[:human_word], session[:current_guess])
 		if correct_guess == true
 			session[:string_with_blanks] = add_letter_to_correct_blank_space(session[:string_with_blanks], session[:current_guess], session[:human_word])
-			if game_over(session[:chances], session[:string_with_blanks]) == true
-				erb :game_over, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]} 
+			if guesser_wins(session[:string_with_blanks]) == true
+				session[:tries] = session[:list_of_guesses].count
+				erb :guesser_wins, :locals => {:tries => session[:tries], :string_with_blanks => session[:string_with_blanks], :list_of_guesses => session[:list_of_guesses]} 
+			elsif guesser_loses(session[:chances]) == true
+				erb :guesser_loses, :locals => {:human_word => session[:human_word], :list_of_guesses => session[:list_of_guesses]}
 			else
 				erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}	
 			end
 		elsif correct_guess == false
 			session[:chances] = session[:chances] - 1
-			if game_over(session[:chances], session[:string_with_blanks]) == true
-				erb :game_over, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]} 
+			if guesser_wins(session[:string_with_blanks]) == true
+				session[:tries] = session[:list_of_guesses].count
+				erb :guesser_wins, :locals => {:tries => session[:tries], :string_with_blanks => session[:string_with_blanks], :list_of_guesses => session[:list_of_guesses]} 
+			elsif guesser_loses(session[:chances]) == true
+				erb :guesser_loses, :locals => {:human_word => session[:human_word], :list_of_guesses => session[:list_of_guesses]}
 			else
 				erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}	
 			end

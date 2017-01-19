@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<% string_with_blanks = string_with_blanks.split("") %>
+<% string_with_blanks.each do |x| %>
+<font size="6"> <%=x%> </font>
+<% end %>
+<body>
+	<br>
+	<br>
+	Past guesses: <%=list_of_guesses%>
+	<br>
+	<br>
+	<br>
+	<h2>The guesser has won! It took <%=tries%> guesses. Would you like to play again?</h2>
+	<br>
+	<hr>
+	<hr>
+	<br>
+	<br>
+	<form action = "/playagain" method = "post">
+		<input id = "submit" type = "submit" value = "Play again.">
+	</form>
+</body>
+</center>
