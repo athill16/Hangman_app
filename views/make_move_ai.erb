@@ -1,0 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<% string_with_blanks = string_with_blanks.split("") %>
+<% string_with_blanks.each do |x| %>
+<font size="6"> <%=x%> </font>
+<% end %>
+<body>
+	<br>
+	<br>
+	Past guesses: <%=list_of_guesses%>
+	<br>
+	<br>
+	<br>
+	<h2>The AI currently has <%=chances%> chances left. Above is it's current status on the word, hit continue to see it's next move.</h2>
+	<br>
+	<hr>
+	<hr>
+	<br>
+	<br>
+	<form action = "/makeguessai" method = "post">
+		<input id = "submit" type = "submit" value = "Continue">
+	</form>
+</body>
+</center>

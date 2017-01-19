@@ -81,7 +81,15 @@ def guesser_loses(chances_left)
 	end
 end
 
+def generate_list_for_ai()
+	list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+end
 
+def ai_guess()
+	list = generate_list_for_ai()
+	guess = list.sample
+	guess
+end
 
 
 

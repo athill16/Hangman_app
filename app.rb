@@ -13,10 +13,19 @@ post '/chooseplayertype' do
 	if session[:opponent] == "Human"
 		erb :choose_word_human
 	else
+		erb :ai_player_mode
+	end
+end
+
+post '/aitype' do
+	session[:type] = params[:type]
+	if session[:type] == "Pick"
 		session[:word] = generate_random_word()
 		session[:string_with_blanks] = generate_string_with_blanks(session[:word])
 		session[:chances] = 10
 		erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
+	else
+		erb :choose_word_for_ai
 	end
 end
 
@@ -25,6 +34,13 @@ post '/choosewordhuman' do
 	session[:string_with_blanks] = generate_string_with_blanks(session[:word])
 	session[:chances] = 10
 	erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
+end
+
+post '/choosewordai' do
+	session[:word] = params[:ai_word]
+	session[:string_with_blanks] = generate_string_with_blanks(session[:word])
+	session[:chances] = 10
+	erb :make_move_ai, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
 end
 
 post '/makeguess' do
@@ -56,6 +72,10 @@ post '/makeguess' do
 			end
 		end
 	end 
+end
+
+post '/makeguessai' do
+	session[:ai_move] = ai_guess(list)
 end
 
 post '/playagain' do
