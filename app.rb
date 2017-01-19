@@ -40,6 +40,7 @@ post '/choosewordai' do
 	session[:word] = params[:ai_word]
 	session[:string_with_blanks] = generate_string_with_blanks(session[:word])
 	session[:chances] = 10
+	session[:ai_list] = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 	erb :make_move_ai, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
 end
 
@@ -75,7 +76,31 @@ post '/makeguess' do
 end
 
 post '/makeguessai' do
-	session[:ai_move] = ai_guess(list)
+	session[:ai_move] = ai_guess(session[:ai_list])
+	session[:ai_list].delete(session[:ai_move])
+	session[:list_of_guesses] << session[:ai_move]
+	correct_guess = check_if_guess_is_correct(session[:word], session[:ai_move])
+	if correct_guess == true
+		session[:string_with_blanks] = add_letter_to_correct_blank_space(session[:string_with_blanks], session[:ai_move], session[:word])
+		if guesser_wins(session[:string_with_blanks]) == true
+			session[:tries] = session[:list_of_guesses].count
+			erb :guesser_wins, :locals => {:tries => session[:tries], :string_with_blanks => session[:string_with_blanks], :list_of_guesses => session[:list_of_guesses]} 
+		elsif guesser_loses(session[:chances]) == true
+			erb :guesser_loses, :locals => {:word => session[:word], :list_of_guesses => session[:list_of_guesses]}
+		else
+			erb :make_move_ai, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}	
+		end
+	elsif correct_guess == false
+		session[:chances] = session[:chances] - 1
+		if guesser_wins(session[:string_with_blanks]) == true
+			session[:tries] = session[:list_of_guesses].count
+			erb :guesser_wins, :locals => {:tries => session[:tries], :string_with_blanks => session[:string_with_blanks], :list_of_guesses => session[:list_of_guesses]} 
+		elsif guesser_loses(session[:chances]) == true
+			erb :guesser_loses, :locals => {:word => session[:word], :list_of_guesses => session[:list_of_guesses]}
+		else
+			erb :make_move_ai, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}	
+		end
+	end
 end
 
 post '/playagain' do

@@ -52,10 +52,6 @@ class TestHangmanGame < Minitest::Test
 		assert_equal(false, over)
 	end
 
-	def test_if_list_has_26_elements
-		assert_equal(26, generate_list_for_ai().count)
-	end
-
 	def test_if_ai_guess_is_one_element_thats_a_string
 		move = ai_guess()
 		assert_equal(1, move.length)
