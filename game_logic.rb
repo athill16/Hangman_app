@@ -69,6 +69,14 @@ def add_letter_to_correct_blank_space(current_blank_spaces, guess, word)
 	current_blank_spaces
 end
 
+def game_over(chances_left, current_blank_spaces)
+	current_blank_spaces = current_blank_spaces.split("")
+	if chances_left == 0 || current_blank_spaces.include?("_") == false
+		true
+	else
+		false
+	end
+end
 
 
 

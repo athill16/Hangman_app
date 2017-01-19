@@ -46,6 +46,15 @@ class TestHangmanGame < Minitest::Test
 		assert_equal("_o__", blanks)
 	end
 
+	def test_if_game_is_over
+		over = game_over(1, "word")
+		assert_equal(true, over)
+		over = game_over(0, "w_rd")
+		assert_equal(true, over)
+		over = game_over(1, "wor_")
+		assert_equal(false, over)
+	end
+
 end
 
 
