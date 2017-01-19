@@ -46,11 +46,6 @@ def generate_string_with_blanks(word)
 	word 
 end
 
-def number_of_chances_left(old_chances)
-	new_chances = old_chances - 1
-	new_chances
-end
-
 def check_if_guess_has_been_used(guess, list_of_guesses)
 	if list_of_guesses.include?(guess.upcase) || list_of_guesses.include?(guess.downcase)
 		true

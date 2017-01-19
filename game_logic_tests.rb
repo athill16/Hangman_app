@@ -27,11 +27,6 @@ class TestHangmanGame < Minitest::Test
 		assert_equal("_____", word)
 	end
 
-	def test_number_of_chances_left
-		chances = number_of_chances_left(10)
-		assert_equal(9, chances)
-	end
-
 	def test_if_guess_has_been_used
 		answer = check_if_guess_has_been_used("A", "a, c, d")
 		assert_equal(true, answer)
