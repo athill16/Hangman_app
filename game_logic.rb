@@ -59,6 +59,30 @@ def check_if_guess_has_been_used(guess, list_of_guesses)
 	end
 end
 
+def add_letter_to_correct_blank_space(current_blank_spaces, guess, word)
+	word = word.split("")
+	word.each_with_index do |letter, index|
+		if guess.downcase == letter.downcase
+			current_blank_spaces[index] = guess
+		end
+	end
+	current_blank_spaces
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

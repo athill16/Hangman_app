@@ -41,6 +41,11 @@ class TestHangmanGame < Minitest::Test
 		assert_equal(true, answer)
 	end
 
+	def test_if_letter_is_added_to_blank_space
+		blanks = add_letter_to_correct_blank_space("____", "o", "word")
+		assert_equal("_o__", blanks)
+	end
+
 end
 
 
