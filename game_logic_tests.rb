@@ -47,11 +47,13 @@ class TestHangmanGame < Minitest::Test
 	end
 
 	def test_if_game_is_over
-		over = game_over(1, "word")
+		over = guesser_wins("word")
 		assert_equal(true, over)
-		over = game_over(0, "w_rd")
+		over = guesser_wins("w_rd")
+		assert_equal(false, over)
+		over = guesser_loses(0)
 		assert_equal(true, over)
-		over = game_over(1, "wor_")
+		over = guesser_loses(1)
 		assert_equal(false, over)
 	end
 

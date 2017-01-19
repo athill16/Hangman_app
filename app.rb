@@ -23,9 +23,6 @@ post '/choosewordhuman' do
 end
 
 post '/makeguess' do
-	if game_over() == true
-		erb :game_over
-	end 
 	session[:current_guess] = params[:guess]
 	if check_if_guess_has_been_used(session[:current_guess], session[:list_of_guesses]) == true
 		erb :redo_guess, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
@@ -34,14 +31,25 @@ post '/makeguess' do
 		correct_guess = check_if_guess_is_correct(session[:human_word], session[:current_guess])
 		if correct_guess == true
 			session[:string_with_blanks] = add_letter_to_correct_blank_space(session[:string_with_blanks], session[:current_guess], session[:human_word])
-			erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
-		else
+			if game_over(session[:chances], session[:string_with_blanks]) == true
+				erb :game_over, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]} 
+			else
+				erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}	
+			end
+		elsif correct_guess == false
 			session[:chances] = session[:chances] - 1
-			erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
+			if game_over(session[:chances], session[:string_with_blanks]) == true
+				erb :game_over, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]} 
+			else
+				erb :display_blank_spaces, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}	
+			end
 		end
-	end
+	end 
 end
 
+post '/playagain' do
+	redirect '/'
+end
 
 
 
