@@ -24,4 +24,21 @@ end
 
 post '/makeguess' do 
 	session[:current_guess] = params[:guess]
+	if check_if_guess_has_been_used(session[:current_guess], session[:list_of_guesses]) == true
+		erb :redo_guess, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances]}
+	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+

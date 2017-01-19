@@ -1,0 +1,23 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<% string_with_blanks = string_with_blanks.split("") %>
+<% string_with_blanks.each do |x| %>
+<font size="6"> <%=x%> </font>
+<% end %>
+<body>
+	<h2>Your last guess has already been used, please make another one-letter guess.</h2>
+	<br>
+	<hr>
+	<hr>
+	<br>
+	<br>
+	<form action = "/makeguess" method = "post">
+		<input id = "guess" type = "text" name = "guess">
+		<input id = "submit" type = "submit">
+	</form>
+</body>
+</center>
