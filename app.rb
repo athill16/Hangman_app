@@ -2,6 +2,7 @@ require 'sinatra'
 require_relative "game_logic.rb"
 
 enable :sessions
+set :session_secret, 'This is a secret key'
 
 get '/' do
 	session[:list_of_guesses] = [] 

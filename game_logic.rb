@@ -11,7 +11,6 @@
 # game loop
 # visuals
 
-# gem 'random-word-generator', '~> 0.0.1'
 require 'random_word_generator'
 
 def generate_random_word()
