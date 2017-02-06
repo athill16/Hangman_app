@@ -1,0 +1,71 @@
+.socialIcons {
+	list-style: none;
+}
+
+.twitter {
+	display: inline-block;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.facebook{
+	display: inline-block;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.google{
+	display: inline-block;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.navbar-right{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact {
+    padding: 8px;
+}
+
+.features {
+    float: left;
+    padding: 8px;
+}
+
+.download {
+    float: left;
+    padding: 8px;
+}
+
+.footer-list {
+	list-style-type: none;
+}
+
+.header {
+	min-height: 10%
+}
+
+.fix_padding {
+	padding-bottom: 80px;
+}
+
+.margin_top{
+	margin-top: 80px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

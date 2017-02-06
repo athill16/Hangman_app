@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<center>
-		<body>
-			<h2>Now that you chose to play against another human, one of you must choose a word for the other to guess.</h2>
-			<br>
-			<hr>
-			<hr>
-			<br>
-			<br>
-			<form action = "/choosewordhuman" method = "post">
-				<input id = "human_word" type = "text" name = "human_word">
-				<input id = "submit" type = "submit">
-			</form>
-		</body>
+		<header>
+			<div class = "margin_top">
+				<h2>Now that you chose to play against another human, one of you must choose a word for the other to guess.</h2>
+				<form action = "/choosewordhuman" method = "post" class = "fix_padding">
+					<input id = "human_word" type = "text" name = "human_word">
+					<input id = "submit" type = "submit">
+				</form>
+			</div>
+		</header>
 	</center>
 </html>

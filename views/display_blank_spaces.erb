@@ -1,31 +1,18 @@
-<br>
-<br>
-<br>
-<br>
-<br>
 <center>
-<% string_with_blanks = string_with_blanks.split("") %>
-<% string_with_blanks.each do |x| %>
-<font size="6"> <%=x%> </font>
-<% end %>
-<body>
-	<br>
-	<br>
-	Past guesses: <%=list_of_guesses%>
-	<br>
-	<br>
-	<br>
-	<h2>You currently have <%=chances%> chances left. Above is your current status on the word, please make a one-letter guess.</h2>
-	<br>
-	<hr>
-	<hr>
-	<br>
-	<br>
-	<form action = "/makeguess" method = "post">
-		<input id = "guess" type = "text" name = "guess">
-		<input id = "submit" type = "submit">
-	</form>
-</body>
+<header>
+	<div class = "margin_top">
+		<% string_with_blanks = string_with_blanks.split("") %>
+		<% string_with_blanks.each do |x| %>
+		<font size="6"> <%=x%> </font>
+		<% end %>
+			Past guesses: <%=list_of_guesses%>
+			<h2>You currently have <%=chances%> chances left. Above is your current status on the word, please make a one-letter guess.</h2>
+			<form action = "/makeguess" method = "post" class = "fix_padding">
+				<input id = "guess" type = "text" name = "guess">
+				<input id = "submit" type = "submit">
+			</form>
+	</div>
+</header>
 </center>
 
 

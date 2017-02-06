@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 	<center>
-		<body>
-			<h2>Would you like the AI to pick a word or be the guesser?</h2>
-			<br>
-			<hr>
-			<hr>
-			<br>
-			<br>
-			<form action = "/aitype" method = "post">
-				<select name = "type">
-	 			<option value = "Pick">Pick</option>
-				<option value = "Guess">Guess</option>
-				</select>
-				<input id = "submit" type = "submit">
-			</form>
-		</body>
+		<header>
+			<div class = "margin_top">
+				<body>
+					<h2>Would you like the AI to pick a word or be the guesser?</h2>
+					<br>
+					<hr>
+					<hr>
+					<br>
+					<br>
+					<form action = "/aitype" method = "post" class = "fix_padding">
+						<select name = "type">
+			 			<option value = "Pick">Pick</option>
+						<option value = "Guess">Guess</option>
+						</select>
+						<input id = "submit" type = "submit">
+					</form>
+				</body>
+			</div>
+		</header>
 	</center>
 </html>

@@ -1,25 +1,24 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<center>
-<h3>Here is the word: <%=word%></h3>
-<body>
-	<br>
-	<br>
-	Past guesses: <%=list_of_guesses%>
-	<br>
-	<br>
-	<br>
-	<h2>There are no chances left, the guesser has lost! Would you like to play again?</h2>
-	<br>
-	<hr>
-	<hr>
-	<br>
-	<br>
-	<form action = "/playagain" method = "post">
-		<input id = "submit" type = "submit" value = "Play again.">
-	</form>
-</body>
-</center>
+<header>
+	<center>
+		<div class = "margin_top">
+			<h3>Here is the word: <%=word%></h3>
+			<body>
+				<br>
+				<br>
+				Past guesses: <%=list_of_guesses%>
+				<br>
+				<br>
+				<br>
+				<h2>There are no chances left, the guesser has lost! Would you like to play again?</h2>
+				<br>
+				<hr>
+				<hr>
+				<br>
+				<br>
+				<form action = "/playagain" method = "post" class = "fix_padding">
+					<input id = "submit" type = "submit" value = "Play again.">
+				</form>
+			</body>
+		</div>
+	</center>
+</header>
