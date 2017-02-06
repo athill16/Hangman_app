@@ -11,10 +11,10 @@
 # game loop
 # visuals
 
-require 'random_word_generator'
+require 'randexp'
 
 def generate_random_word()
-	random_word = RandomWordGenerator.word
+	random_word = /\w+/.gen
 	random_word
 end
 
