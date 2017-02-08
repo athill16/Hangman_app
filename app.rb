@@ -47,7 +47,7 @@ end
 
 post '/makeguess' do
 	session[:current_guess] = params[:guess]
-	if check_if_guess_has_been_used(session[:current_guess], session[:list_of_guesses]) == true || session[:current_guess].length != 1 || session[:current_guess].to_i.to_s == session[:current_guess]
+	if check_if_guess_has_been_used(session[:current_guess], session[:list_of_guesses]) == true || session[:current_guess][/[a-zA-Z]+/]  != session[:current_guess]
 		erb :redo_guess, :locals => {:string_with_blanks => session[:string_with_blanks], :chances => session[:chances], :list_of_guesses => session[:list_of_guesses]}
 	else 
 		session[:list_of_guesses] << session[:current_guess].downcase
