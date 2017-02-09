@@ -24,93 +24,32 @@
 
 
   <style>
-               
-          /* misc start */
-          *{
-               margin:0px;
-               padding:0px
-          }
-          
-          body{
-               font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
-          }
-          
-          .media1140px{
-               background-color:#CE9429;
-          }
-          
-          .media768px{
-               background-color:#EDD49A;
-          }
-          
-          .media480px{
-               background-color:#EFEF34;
-          }
-          
-          .media300px{
-               background-color:#82EAFF;
-          }
-          
-          .media1140px, .media768px, .media480px, .media300px{
-               padding:15px;
-          }
-          
-          p{
-               margin:0 0 20px 0;
-          }
-          
-          .clearb{
-               clear:both;
-          }
 
-          @media only screen and (min-width: 480px) {
-               #mainHeader {
-                    background-color:#EFEF34;
-               }
-               
-               nav ul li{
-                    float:left;
-                    width:25%;
-               }
+          @media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+              body {
+                width: 100%;
+                font-size: 75%;
+              }
+
+              footer {
+                width: 75%;
+              }
+
           }
           
-          @media only screen and (min-width: 768px) {
-               #mainHeader {
-                    background-color:#EDD49A;
-               }
-               
-               #mainSection{
-                    float: left;
-                    width: 61%;
-               }
-               
-               #sideBox1{
-                    float: right;
-                    width: 30%;
-               }
-               
-               
+          @media only screen and (min-device-width : 768px) and (max-device-width : 1139px) {
+              body {
+                width: 100%;
+                font-size: 100%;
+              }
           }
           
           
-          @media only screen and (min-width: 1140px) {
-               #mainHeader {
-                    background-color:#CE9429;
-               }
-               
-               #responsiveLogo{
-                    float:left;
-                    width:30%;
-               }
-               
-               nav{
-                    float:left;
-                    width:70%;
-               }
-               
-               nav ul{
-                    margin:1.5em 0 0 0;
-               }
+          @media only screen and (min-device-width : 1140px) {
+              body {
+                width: 100%;
+                font-size: 100%;
+              }
           }
           
   </style>   
